@@ -14,7 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Join application</h1>
+        <div className="m-2 rounded bg-amber">
+          <h1 className="m-4 text-red font-satoshi">Join application</h1>
+        </div>
         <button onClick={() => signIn("github")}>Sign in github</button>
       </main>
     </>
