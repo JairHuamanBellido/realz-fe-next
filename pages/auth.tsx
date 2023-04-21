@@ -11,6 +11,8 @@ export default function AuthPage() {
       </Head>
       <main>
         <h1>Authentication</h1>
+
+        <button onClick={() => signIn("github")}>Sign in with Github</button>
       </main>
     </>
   );
