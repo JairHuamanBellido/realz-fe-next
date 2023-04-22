@@ -86,7 +86,14 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@iconify/types@^2.0.0":
+"@iconify-json/grommet-icons@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@iconify-json/grommet-icons/-/grommet-icons-1.1.6.tgz#c08982b474e3e3c938065e9d1c3dad05afa6cb81"
+  integrity sha512-5rSWj7mYxSSUbCYh0/KX7fQo0PSd2qh73zhzmkpOzVmCJRatukwMxQSvyInKEkyW7Few2gI+p8dWwg1I5sTi5w==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify/types@*", "@iconify/types@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@iconify/types/-/types-2.0.0.tgz#ab0e9ea681d6c8a1214f30cd741fe3a20cc57f57"
   integrity sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==
@@ -420,6 +427,11 @@
   resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.51.5.tgz#6318f99e2ea8adce71f6af241d0502a67d3c3e3d"
   integrity sha512-c2Ssp62nMRp3hCGhyaWYOMSD+QdwoYgTUbmIVNMTlVtDo9fjvyE2XwVRwAK7fJk8TnubAaDpkhZ49hVVf7Wjag==
 
+"@unocss/core@0.51.6":
+  version "0.51.6"
+  resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.51.6.tgz#ed3413c483bb4fc690e539aa66c554e5fb5377b5"
+  integrity sha512-1P2AVWkxsjSC2djg6bN5qApmONtECZP9ODphhWhpLgk1xKMopOFpJr2ZvkLhw3URt2SR3Pu/5iFklSIu6eAFhA==
+
 "@unocss/extractor-arbitrary-variants@0.51.5":
   version "0.51.5"
   resolved "https://registry.yarnpkg.com/@unocss/extractor-arbitrary-variants/-/extractor-arbitrary-variants-0.51.5.tgz#50cd5385747ec24264edd3b7ef4318416efc8bc5"
@@ -461,6 +473,15 @@
   dependencies:
     "@iconify/utils" "^2.1.5"
     "@unocss/core" "0.51.5"
+    ofetch "^1.0.1"
+
+"@unocss/preset-icons@^0.51.6":
+  version "0.51.6"
+  resolved "https://registry.yarnpkg.com/@unocss/preset-icons/-/preset-icons-0.51.6.tgz#875304ae4184ef55737fc6474db14e2bb2c2c0e0"
+  integrity sha512-Jq9oO+sh/GarZEkfE9/dAXYI35BV6SAs7uLpdlhIIiEQWElV2v7mTplf/uhvvb3OYeiATHbfZ3kFic2chQZbiA==
+  dependencies:
+    "@iconify/utils" "^2.1.5"
+    "@unocss/core" "0.51.6"
     ofetch "^1.0.1"
 
 "@unocss/preset-mini@0.51.5":
@@ -813,6 +834,11 @@ client-only@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"
   integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==
+
+clsx@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
+  integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
 
 color-convert@^2.0.1:
   version "2.0.1"
