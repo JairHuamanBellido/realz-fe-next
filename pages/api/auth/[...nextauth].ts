@@ -40,7 +40,7 @@ export const nexAuthOptions = (
           cookie.serialize("user_type", EnumUserAuthenticatedMethod.GITHUB, {
             httpOnly: true,
             secure: true,
-            maxAge: 60 * 60,
+            maxAge: 60 * 60 * 24,
             sameSite: "lax",
             path: "/",
           })
