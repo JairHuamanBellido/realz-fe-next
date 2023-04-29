@@ -35,16 +35,22 @@ export const nexAuthOptions = (
           });
         }
 
-        res.setHeader(
-          "Set-Cookie",
+        res.setHeader("Set-Cookie", [
           cookie.serialize("user_type", EnumUserAuthenticatedMethod.GITHUB, {
             httpOnly: true,
             secure: true,
             maxAge: 60 * 60 * 24,
             sameSite: "lax",
             path: "/",
-          })
-        );
+          }),
+          cookie.serialize("user_id", user.id, {
+            httpOnly: true,
+            secure: true,
+            maxAge: 60 * 60 * 24,
+            sameSite: "lax",
+            path: "/",
+          }),
+        ]);
 
         return true;
       },
