@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "@tanstack/react-query": "^4.29.3",
     "@types/node": "18.15.12",
     "@types/react": "18.0.37",
@@ -24,14 +25,19 @@
     "inversify": "^6.0.1",
     "next": "13.3.0",
     "next-auth": "^4.22.1",
+    "next-redux-wrapper": "^8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.9",
+    "react-modal": "^3.16.1",
+    "react-redux": "^8.0.5",
     "typescript": "5.0.4",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@iconify-json/grommet-icons": "^1.1.6",
     "@types/cookie": "^0.5.1",
+    "@types/react-modal": "^3.16.0",
     "@types/uuid": "^9.0.1",
     "@unocss/cli": "^0.51.5",
     "@unocss/preset-icons": "^0.51.6",
