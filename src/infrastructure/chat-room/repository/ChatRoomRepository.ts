@@ -8,4 +8,8 @@ export class ChatRoomRepository {
   async create(payload: HttpCreateChatRoomDTO): Promise<ChatRoomDomain> {
     return (await httpClient.post("/chat-rooms", payload)).data;
   }
+
+  async getAll(): Promise<ChatRoomDomain[]> {
+    return (await httpClient.get<ChatRoomDomain[]>("/chat-rooms")).data;
+  }
 }

@@ -1,3 +1,4 @@
+import SectionChatRoom from "@/src/application/lobby/components/SectionChaatRooms";
 import { EnumUserAuthenticatedMethod } from "@/src/domain/user/enum/user-authenticated-method.enum";
 import { setId } from "@/src/redux/reducer/UserReducer";
 import ModalCreateChatRoom from "@/src/shared/modal/types/CreateChatRoomModal";
@@ -41,6 +42,7 @@ export default function LobbyPage({
             setIsOpen(false);
           }}
         />
+        <SectionChatRoom />
       </main>
     </>
   );
