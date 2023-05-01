@@ -12,4 +12,8 @@ export class ChatRoomRepository {
   async getAll(): Promise<ChatRoomDomain[]> {
     return (await httpClient.get<ChatRoomDomain[]>("/chat-rooms")).data;
   }
+  
+  async getById(id: string): Promise<ChatRoomDomain> {
+    return (await httpClient.get<ChatRoomDomain>(`/chat-rooms/${id}`)).data;
+  }
 }
