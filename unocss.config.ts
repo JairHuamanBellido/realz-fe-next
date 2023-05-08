@@ -34,6 +34,7 @@ export default defineConfig({
       },
     }),
   ],
+  rules: [[/^h-calc-(\d+)px$/, ([, d]) => ({ height: `calc(100vh - ${d}px)` })]],
   theme: {
     colors: {
       darkSurface: "#070b14",
