@@ -7,7 +7,7 @@ import { HttpError } from "@/src/core/http-errors/HttpError.model";
 @injectable()
 export class UserRepository {
   async createUser(payload: HttpCreateUserDTO): Promise<UserDomain> {
-    return await httpClient.post("/users", payload);
+    return (await httpClient.post("/users", payload)).data;
   }
   async findById(id: string): Promise<UserDomain | HttpError> {
     return await httpClient
