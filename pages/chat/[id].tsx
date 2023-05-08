@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useWebSocket } from "react-use-websocket/dist/lib/use-websocket";
 import { getCookie } from "cookies-next";
+import { addMessage } from "@/src/redux/reducer/MessagesReducer";
+import { v4 as uuidv4 } from "uuid";
 
 interface Props {
   dehydratedState: DehydratedState;
@@ -24,10 +26,28 @@ export default function ChatPage({ userId }: Props) {
     (query?.id as string) || ""
   );
   const dispatch = useDispatch();
-  const { sendJsonMessage } = useWebSocket(
+  const { sendJsonMessage, lastMessage } = useWebSocket(
     process.env.NEXT_PUBLIC_WS_URL || "",
     {}
   );
+
+  useEffect(() => {
+    if (!!lastMessage) {
+      const messageJson = JSON.parse(lastMessage.data);
+
+      if (messageJson.action === "SEND MESSAGE") {
+        dispatch(
+          addMessage({
+            message: {
+              id: uuidv4(),
+              sender_id: messageJson.sender.id,
+              text: messageJson.message,
+            },
+          })
+        );
+      }
+    }
+  }, [lastMessage]);
   useEffect(() => {
     dispatch(setId({ id: userId }));
 
