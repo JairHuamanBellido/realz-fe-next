@@ -1,8 +1,9 @@
 import { ChatRoomDomain } from "@/src/domain/chat-room/model/ChatRoomDomain.model";
 import { selectMessagesStates } from "@/src/redux/reducer/MessagesReducer";
 import { selectUserState } from "@/src/redux/reducer/UserReducer";
+import Input from "@/src/shared/input";
 import clsx from "clsx";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useSelector } from "react-redux";
 import { useWebSocket } from "react-use-websocket/dist/lib/use-websocket";
 
@@ -41,17 +42,12 @@ export default function MessagesContainer({ chatroom }: IProps) {
         ))}
       </div>
       <div>
-        <input
+        <Input
           type="text"
-          className={clsx(
-            "w-full bg-input-bg transition-all outline-none  border-input-borderColor border-solid border-1  ",
-            "mb-8 text-base px-6 py-4 color-lightText ",
-            "focus:outline-none focus:border-input-focusBorderColor focus:border-solid focus:border-1",
-            "rounded",
-            "font-satoshi"
-          )}
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setMessage(e.target.value)
+          }
           placeholder="Type a message"
           onKeyUp={(e) => {
             if (e.key === "Enter") {

@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import useCreateGuestUser from "../hooks/useCreateGuestUser";
 import { useRouter } from "next/router";
 import { v4 as uuidv4 } from "uuid";
@@ -7,6 +7,7 @@ import { signIn } from "next-auth/react";
 import { clsx } from "clsx";
 import Button from "@/src/shared/button";
 import Loader from "@/src/shared/loader";
+import Input from "@/src/shared/input";
 export default function AuthContainer() {
   const [username, setUsername] = useState<string>("");
 
@@ -49,20 +50,15 @@ export default function AuthContainer() {
               <label htmlFor="username" className="text-base text-white mb-2">
                 Username
               </label>
-              <input
+              <Input
                 name="username"
                 type="text"
                 required
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setUsername(e.target.value)
+                }
                 placeholder="Username"
-                className={clsx(
-                  "w-full bg-input-bg transition-all outline-none  border-input-borderColor border-solid border-1  ",
-                  "mb-8 text-base px-6 py-4 color-lightText ",
-                  "focus:outline-none focus:border-input-focusBorderColor focus:border-solid focus:border-1",
-                  "rounded",
-                  "font-satoshi"
-                )}
               />
 
               <Button variant="primary">Sign in as Guest User</Button>
@@ -70,7 +66,7 @@ export default function AuthContainer() {
           </div>
           <div
             className={clsx(
-              "h-[1px] w-full bg-divider-base my-8 outline-none border-none "
+              "h-[1px] w-full transparent-1 my-8 outline-none border-none "
             )}
           />
           <div className="i-ph-anchor-simple-thin" />
