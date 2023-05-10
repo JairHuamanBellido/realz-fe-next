@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form";
 import useCreateChatRoom from "../hooks/useCreateChatRoom";
 import { useSelector } from "react-redux";
 import { selectUserState } from "@/src/redux/reducer/UserReducer";
-import clsx from "clsx";
 import Button from "@/src/shared/button";
 import Loader from "@/src/shared/loader";
 import { useRouter } from "next/router";
+import Input from "@/src/shared/input";
 
 export default function CreateChatRoomForm() {
   const { register, handleSubmit } = useForm<HttpCreateChatRoomDTO>();
@@ -36,16 +36,7 @@ export default function CreateChatRoomForm() {
           <label htmlFor="title" className="text-white">
             Title
           </label>
-          <input
-            className={clsx(
-              "w-full bg-input-bg transition-all outline-none  border-input-borderColor border-solid border-1  ",
-              "mb-8 text-base px-6 py-4 color-lightText ",
-              "focus:outline-none focus:border-input-focusBorderColor focus:border-solid focus:border-1",
-              "rounded",
-              "font-satoshi"
-            )}
-            {...register("title")}
-          />
+          <Input {...register("title")} />
           <Button type="submit" variant="primary">
             Create Chat Room
           </Button>
