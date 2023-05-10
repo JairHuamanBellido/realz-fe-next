@@ -1,7 +1,5 @@
 import SectionChatRoom from "@/src/application/lobby/components/SectionChaatRooms";
-import { EnumUserAuthenticatedMethod } from "@/src/domain/user/enum/user-authenticated-method.enum";
 import { setId } from "@/src/redux/reducer/UserReducer";
-import ModalCreateChatRoom from "@/src/shared/modal/types/CreateChatRoomModal";
 import { getCookie } from "cookies-next";
 import {
   GetServerSideProps,
@@ -19,7 +17,6 @@ type Data = {
 export default function LobbyPage({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setId({ id: data.userId }));
@@ -32,17 +29,7 @@ export default function LobbyPage({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Lobby Page</h1>
-        {data.userTypeCookie === EnumUserAuthenticatedMethod.GITHUB && (
-          <button onClick={() => setIsOpen(true)}> Create chat room </button>
-        )}
-        <ModalCreateChatRoom
-          isOpen={isOpen}
-          onClose={() => {
-            setIsOpen(false);
-          }}
-        />
-        <SectionChatRoom />
+        <SectionChatRoom userType={data.userTypeCookie} />
       </main>
     </>
   );
