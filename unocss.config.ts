@@ -43,10 +43,12 @@ export default defineConfig({
       /^transparent-low-(\d)$/,
       ([, d]) => ({ background: `rgba(255,255,255,0.0${d})` }),
     ],
+    ["text-shadow-blue-brilliant", { "text-shadow": "0px 0px 12px #4dbded" }],
   ],
   theme: {
     colors: {
       darkSurface: "#070b14",
+      blueBrilliant: "#4dbded",
       button: {
         primaryBg: "#000000",
         primaryText: "#ffffff",

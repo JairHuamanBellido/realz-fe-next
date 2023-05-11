@@ -7,7 +7,7 @@ interface IProps {
 }
 export default function ChatRoomLayout({ chatRoom }: IProps) {
   return (
-    <div>
+    <div className="relative w-full mx-auto px-12">
       <ChatRoomHeader title={chatRoom.title} />
       <MessagesContainer chatroom={chatRoom} />
     </div>

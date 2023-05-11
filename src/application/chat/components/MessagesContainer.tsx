@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { ChangeEvent, useState } from "react";
 import { useSelector } from "react-redux";
 import { useWebSocket } from "react-use-websocket/dist/lib/use-websocket";
+import ChatCardMessage from "./CardMessage";
 
 interface IProps {
   chatroom: ChatRoomDomain;
@@ -22,23 +23,13 @@ export default function MessagesContainer({ chatroom }: IProps) {
   const [message, setMessage] = useState<string>("");
 
   return (
-    <div className={clsx("h-calc-64px relative max-w-1440px mx-auto px-12")}>
-      <div className="h-90% overflow-y-auto">
+    <div className={clsx("h-calc-64px")}>
+      <div className="h-90% overflow-y-auto rounded-2 mb-4">
         {chatroom.messages.map((message) => (
-          <div
-            className="bg-white py-2 px-4 rounded-1  w-fit max-w-320px"
-            key={message.id}
-          >
-            <p className="text-black">{message.text}</p>
-          </div>
+          <ChatCardMessage message={message} key={message.id} />
         ))}
         {latestMessages.map((message) => (
-          <div
-            key={message.id}
-            className="bg-white py-2 px-4 rounded-1  w-fit max-w-320px"
-          >
-            <p className="text-black">{message.text}</p>
-          </div>
+          <ChatCardMessage message={message} key={message.id} />
         ))}
       </div>
       <div>
