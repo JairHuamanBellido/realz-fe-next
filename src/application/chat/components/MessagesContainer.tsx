@@ -1,3 +1,4 @@
+"use client"
 import { ChatRoomDomain } from "@/src/domain/chat-room/model/ChatRoomDomain.model";
 import { selectMessagesStates } from "@/src/redux/reducer/MessagesReducer";
 import { selectUserState } from "@/src/redux/reducer/UserReducer";

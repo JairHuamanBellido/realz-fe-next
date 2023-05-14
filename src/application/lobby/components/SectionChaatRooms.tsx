@@ -1,19 +1,27 @@
+"use client";
 import clsx from "clsx";
 import useGetAllChatRooms from "../hooks/useGetAllChatRooms";
 import Link from "next/link";
 import Loader from "@/src/shared/loader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { EnumUserAuthenticatedMethod } from "@/src/domain/user/enum/user-authenticated-method.enum";
 import ModalCreateChatRoom from "@/src/shared/modal/types/CreateChatRoomModal";
 import Button from "@/src/shared/button";
+import { setId } from "@/src/redux/reducer/UserReducer";
+import { useDispatch } from "react-redux";
 
 interface Props {
   userType: string;
+  userId: string;
 }
-export default function SectionChatRoom({ userType }: Props) {
+export default function SectionChatRoom({ userType,userId }: Props) {
+  const dispatch = useDispatch();
+
   const { data, isLoading, isSuccess } = useGetAllChatRooms();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
+  useEffect(() => {
+    dispatch(setId({ id: userId }));
+  }, []);
   return (
     <>
       <section className={clsx("px-16 max-w-1440px  mx-auto relative")}>
@@ -41,7 +49,7 @@ export default function SectionChatRoom({ userType }: Props) {
                     "text-base decoration-none bg-black  text-white",
                     "block p-4 w-fit rounded-1"
                   )}
-                  href={`/chat/${chatroom.id}`}
+                  href={`/lobby/chat/${chatroom.id}`}
                 >
                   {chatroom.title}
                 </Link>

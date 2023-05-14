@@ -1,6 +1,7 @@
+"use client"
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import useCreateGuestUser from "../hooks/useCreateGuestUser";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
 import { EnumUserAuthenticatedMethod } from "@/src/domain/user/enum/user-authenticated-method.enum";
 import { signIn } from "next-auth/react";
