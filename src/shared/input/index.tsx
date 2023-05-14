@@ -3,10 +3,9 @@ import { HTMLProps } from "react";
 
 interface Props extends HTMLProps<HTMLInputElement> {}
 
-export default function Input({ ...rest }: Props) {
+export default function Input(props: Props) {
   return (
     <input
-      {...rest}
       className={clsx(
         "transparent-low-2 color-white",
         "border-input-borderColor border-solid border-1",
@@ -16,6 +15,7 @@ export default function Input({ ...rest }: Props) {
         "rounded",
         "font-satoshi"
       )}
+      {...props}
     />
   );
 }

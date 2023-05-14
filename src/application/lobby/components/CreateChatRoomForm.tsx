@@ -5,11 +5,11 @@ import { useSelector } from "react-redux";
 import { selectUserState } from "@/src/redux/reducer/UserReducer";
 import Button from "@/src/shared/button";
 import Loader from "@/src/shared/loader";
-import { useRouter } from "next/router";
 import Input from "@/src/shared/input";
+import { useRouter } from "next/navigation";
 
 export default function CreateChatRoomForm() {
-  const { register, handleSubmit } = useForm<HttpCreateChatRoomDTO>();
+  const { register, handleSubmit } = useForm<HttpCreateChatRoomDTO>({});
   const { mutate, isLoading, isSuccess } = useCreateChatRoom();
   const { push } = useRouter();
   const { id: owner_id } = useSelector(selectUserState);
@@ -22,7 +22,7 @@ export default function CreateChatRoomForm() {
       {
         onSuccess: (data) => {
           setTimeout(() => {
-            push(`chat/${data.id}`);
+            push(`/lobby/chat/${data.id}`);
           }, 2000);
         },
       }
